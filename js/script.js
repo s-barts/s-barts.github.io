@@ -7,11 +7,21 @@ darkModeToggle.addEventListener('click', () => {
     darkModeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// Hide intro and show main content after 3 seconds
-setTimeout(() => {
-    document.getElementById('intro').style.display = 'none';
-    document.getElementById('main-content').classList.remove('hidden');
-}, 3000);
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide intro and show main content after 3 seconds
+    setTimeout(() => {
+        const intro = document.getElementById('intro');
+        const mainContent = document.getElementById('main-content');
+
+        if (intro && mainContent) {
+            intro.style.display = 'none';
+            mainContent.classList.remove('hidden');
+        } else {
+            console.error('Elements not found!');
+        }
+    }, 3000);
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
