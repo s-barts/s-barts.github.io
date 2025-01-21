@@ -8,13 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle">🌙</button>
+
     <!-- Intro Screen -->
     <div id="intro">
         <h1>Bartley</h1>
         <p>Fashion Stylist</p>
     </div>
 
-    <!-- Main Content (Hidden Initially) -->
+    <!-- Main Content -->
     <div id="main-content" class="hidden">
         <!-- Header -->
         <header>
@@ -22,9 +25,9 @@
                 <img src="images/logo.png" alt="Bartley Logo" class="logo">
                 <nav>
                     <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about" data-transition="about">About</a></li>
+                        <li><a href="#portfolio" data-transition="portfolio">Portfolio</a></li>
+                        <li><a href="#contact" data-transition="contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -32,6 +35,7 @@
 
         <!-- Hero Section -->
         <section class="hero">
+            <div class="parallax"></div>
             <div class="container">
                 <h1>Bartley</h1>
                 <p>Elevating Style, One Look at a Time</p>
@@ -51,10 +55,8 @@
         <section id="portfolio" class="portfolio">
             <div class="container">
                 <h2>Portfolio</h2>
-                <div class="gallery">
-                    <img src="images/portfolio-1.jpg" alt="Editorial Styling">
-                    <img src="images/portfolio-2.jpg" alt="Red Carpet Look">
-                    <img src="images/portfolio-3.jpg" alt="Brand Campaign">
+                <div class="gallery" id="gallery">
+                    <!-- Portfolio items will be loaded dynamically -->
                 </div>
             </div>
         </section>
@@ -63,7 +65,7 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Contact</h2>
-                <form action="#" method="post">
+                <form id="contact-form">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" placeholder="Your Message" required></textarea>
