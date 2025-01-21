@@ -8,68 +8,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <img src="images/logo.png" alt="Bartley Logo" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Intro Screen -->
+    <div id="intro">
+        <h1>Bartley</h1>
+        <p>Fashion Stylist</p>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Bartley</h1>
-            <p>Elevating Style, One Look at a Time</p>
-            <a href="#portfolio" class="btn">View Portfolio</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>With over a decade of experience in the fashion industry, I specialize in creating timeless, personalized looks for clients worldwide.</p>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2>Portfolio</h2>
-            <div class="gallery">
-                <img src="images/portfolio-1.jpg" alt="Editorial Styling">
-                <img src="images/portfolio-2.jpg" alt="Red Carpet Look">
-                <img src="images/portfolio-3.jpg" alt="Brand Campaign">
+    <!-- Main Content (Hidden Initially) -->
+    <div id="main-content" class="hidden">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <img src="images/logo.png" alt="Bartley Logo" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Bartley</h1>
+                <p>Elevating Style, One Look at a Time</p>
+                <a href="#portfolio" class="btn">View Portfolio</a>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Bartley. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>With over a decade of experience in the fashion industry, I specialize in creating timeless, personalized looks for clients worldwide.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2>Portfolio</h2>
+                <div class="gallery">
+                    <img src="images/portfolio-1.jpg" alt="Editorial Styling">
+                    <img src="images/portfolio-2.jpg" alt="Red Carpet Look">
+                    <img src="images/portfolio-3.jpg" alt="Brand Campaign">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 Bartley. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
