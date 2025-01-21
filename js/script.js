@@ -1,57 +1,58 @@
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+// Curtain Animation Controller
+class CurtainManager {
+    constructor() {
+        this.curtain = document.querySelector('.curtain');
+        this.gridLines = document.querySelectorAll('.grid-line');
+        this.init();
+    }
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    darkModeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
+    init() {
+        this.animateGridLines();
+        this.sequenceTextAnimations();
+        this.setExitTriggers();
+    }
 
-// Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // Hide intro and show main content after 3 seconds
-    setTimeout(() => {
-        const intro = document.getElementById('intro');
-        const mainContent = document.getElementById('main-content');
-
-        if (intro && mainContent) {
-            intro.style.display = 'none';
-            mainContent.classList.remove('hidden');
-        } else {
-            console.error('Elements not found!');
-        }
-    }, 3000);
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    animateGridLines() {
+        this.gridLines.forEach((line, index) => {
+            line.style.animationDelay = `${index * 0.2}s`;
         });
-    });
-});
+    }
 
-// Dynamic Portfolio Loading
-const portfolioItems = [
-    { src: 'images/portfolio-1.jpg', alt: 'Editorial Styling' },
-    { src: 'images/portfolio-2.jpg', alt: 'Red Carpet Look' },
-    { src: 'images/portfolio-3.jpg', alt: 'Brand Campaign' }
-];
+    sequenceTextAnimations() {
+        const animationSequence = [
+            { element: '.brand-name', delay: 800 },
+            { element: '.tagline', delay: 1200 }
+        ];
 
-const gallery = document.getElementById('gallery');
-portfolioItems.forEach(item => {
-    const img = document.createElement('img');
-    img.src = item.src;
-    img.alt = item.alt;
-    gallery.appendChild(img);
-});
+        animationSequence.forEach(({ element, delay }) => {
+            setTimeout(() => {
+                const el = document.querySelector(element);
+                el.style.animationPlayState = 'running';
+            }, delay);
+        });
+    }
 
-// Form Submission
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for your message!');
-    contactForm.reset();
+    setExitTriggers() {
+        // Automatic exit after 3s
+        setTimeout(() => this.hideCurtain(), 3000);
+        
+        // Immediate exit on scroll
+        window.addEventListener('wheel', () => this.hideCurtain(), { once: true });
+        
+        // Mobile touch support
+        window.addEventListener('touchstart', () => this.hideCurtain(), { once: true });
+    }
+
+    hideCurtain() {
+        this.curtain.dataset.state = 'hidden';
+        this.curtain.addEventListener('transitionend', () => {
+            this.curtain.remove();
+            window.dispatchEvent(new Event('curtain-removed'));
+        }, { once: true });
+    }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new CurtainManager();
 });
