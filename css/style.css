@@ -1,4 +1,3 @@
-/* ===== CORE VARIABLES ===== */
 :root {
     --primary: #1a1a1a;
     --secondary: #e6e6e6;
@@ -7,7 +6,6 @@
     --transition-duration: 1.2s;
 }
 
-/* ===== BASE RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +20,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== CURTAIN COMPONENT ===== */
+/* Curtain Styles */
 .curtain {
     position: fixed;
     top: 0;
@@ -41,7 +39,7 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
-/* ===== TYPOGRAPHY SYSTEM ===== */
+/* Text Animations */
 .title-sequence {
     text-align: center;
     overflow: hidden;
@@ -73,7 +71,7 @@ body {
     }
 }
 
-/* ===== GRID SYSTEM ===== */
+/* Grid Lines */
 .grid-lines {
     position: absolute;
     width: 100%;
@@ -98,7 +96,7 @@ body {
     to { transform: scaleX(1); }
 }
 
-/* ===== SCROLL INDICATOR ===== */
+/* Scroll Cue */
 .scroll-cue {
     position: absolute;
     bottom: 2rem;
@@ -115,7 +113,40 @@ body {
     50% { opacity: 1; }
 }
 
-/* ===== RESPONSIVE RULES ===== */
+/* Main Content */
+.content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.5s;
+}
+
+.content-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    letter-spacing: 0.2em;
+    color: var(--accent);
+}
+
 @media (max-width: 768px) {
     .brand-name {
         letter-spacing: 0.3em;

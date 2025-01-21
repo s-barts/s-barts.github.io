@@ -1,7 +1,7 @@
-// Curtain Animation Controller
 class CurtainManager {
     constructor() {
         this.curtain = document.querySelector('.curtain');
+        this.mainContent = document.querySelector('.content-wrapper');
         this.gridLines = document.querySelectorAll('.grid-line');
         this.init();
     }
@@ -47,7 +47,7 @@ class CurtainManager {
         this.curtain.dataset.state = 'hidden';
         this.curtain.addEventListener('transitionend', () => {
             this.curtain.remove();
-            window.dispatchEvent(new Event('curtain-removed'));
+            this.mainContent.classList.add('visible');
         }, { once: true });
     }
 }
